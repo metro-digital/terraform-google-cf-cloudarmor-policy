@@ -1,0 +1,72 @@
+# Copyright 2025 METRO Digital GmbH
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+
+default_stages:
+  - pre-commit
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
+    hooks:
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: ['--fix', 'lf']
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: 9a790d2bbf52124eecb5a71a4bab4884804ffa2a  # frozen: v1.100.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_tflint
+        args:
+          - --args=--config=__GIT_WORKING_DIR__/.tflint.hcl
+          - --args=--fix
+      - id: terraform_docs
+        args:
+          - --args=--config=.terraform-docs.yaml
+  - repo: https://github.com/adrienverge/yamllint
+    rev: 79a6b2b1392eaf49cdd32ac4f14be1a809bbd8f7  # frozen: v1.37.1
+    hooks:
+      - id: yamllint
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 38980559e3a605691d6579f96222c30778e5a69e  # frozen: 3.0.0
+    hooks:
+      - id: script-must-have-extension
+      - id: shellcheck
+      - id: shfmt
+  - repo: https://github.com/hukkin/mdformat
+    rev: ff29be1a1ba8029d9375882aa2c812b62112a593  # frozen: 0.7.22
+    hooks:
+      - id: mdformat
+        # needed to support exclude in `.mdformat.toml`
+        # pre-commit runs on python 3.12 by default on MacOS and most linux distributions.
+        # Install python 3.13 if pre-commit fails.
+        language_version: "3.13"
+        # Optionally add plugins
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-gfm-alerts
+          - mdformat-shfmt
+          - mdformat-toc
+          - mdformat-tables
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: 879f5400493f84c8b683bdeb3366a8439ca17858  # frozen: v9.22.0
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ['@commitlint/config-conventional']
