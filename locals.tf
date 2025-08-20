@@ -207,21 +207,27 @@ locals {
     redirect_target = null
 
     # rate_limit_options is needed for the rules where action is set to throttle or rate_based_ban.
+    # By default, it is set to redirect, so the following parameters are not actively used.
     rate_limit_options = {
-      enforce_on_key                       = "ALL"
+      enforce_on_key                       = "IP"
       enforce_on_key_name                  = null
       enforce_on_key_configs               = []
       exceed_action                        = "redirect" # deny or redirect
-      rate_limit_http_request_count        = 50000
-      rate_limit_http_request_interval_sec = 60    # must be 10, 30, 60, 120, 180, 240, 300, 600, 900, 1200, 1800, 2700, or 3600
-      ban_duration_sec                     = 3600  # needed only if action is rate_based_ban
-      ban_http_request_count               = 10000 # needed only if action is rate_based_ban
-      ban_http_request_interval_sec        = 60    # must be 10, 30, 60, 120, 180, 240, 300, 600, 900, 1200, 1800, 2700, or 3600
+      rate_limit_http_request_count        = 200        # needed only if action is rate_limit
+      rate_limit_http_request_interval_sec = 60         # must be 10, 30, 60, 120, 180, 240, 300, 600, 900, 1200, 1800, 2700, or 3600
+      ban_duration_sec                     = 3600       # needed only if action is rate_based_ban
+      ban_http_request_count               = 400        # needed only if action is rate_based_ban
+      ban_http_request_interval_sec        = 60         # must be 10, 30, 60, 120, 180, 240, 300, 600, 900, 1200, 1800, 2700, or 3600
       # The redirect options are used when the action is set to redirect.
       exceed_redirect_options = {
         type   = "GOOGLE_RECAPTCHA"
         target = null
       }
+
+      # The numbers provided (200, 400) are generic starting points.
+      # Before enforcing any rate-limiting, analyze your server logs to understand the
+      # behavior of your legitimate users. Find the 99th percentile for requests per
+      # minute from a single IP and set your threshold above that to avoid impacting real users.
     }
   }
 
