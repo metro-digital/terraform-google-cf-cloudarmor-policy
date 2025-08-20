@@ -160,9 +160,8 @@ By default, the security policy bundles the following rules:
   `pre_configured_rules_overwrites` input variable following the structure
   outlined [here](./docs/TERRAFORM.md#inputs). Rules are by default enabled by
   with a [sensitivity level][paranoia-explainer] (also referred to as _paranoia
-  level_) of `1` which only represents a baseline security. Production systems
-  handling real customer data should use a sensitivity level of at least `2`.
-  Google outlines how to fine tune the pre-configured rules in
+  level_) of `2` which is a good starting point for production systems. Google
+  outlines how to fine tune the pre-configured rules in
   [this blog post][sensitivity-post].
 
   The following rules are enabled by default:
@@ -178,7 +177,7 @@ By default, the security policy bundles the following rules:
   - OWASP CRS: Session Fixation Protection (v33-stable) (`WAF-session-fixation`)
 
   The following language-specific rules can be enabled with a default
-  sensitivity level of `1`:
+  sensitivity level of `2`:
 
   - OWASP CRS: PHP Injection Protection (v33-stable) (`WAF-php`)
   - OWASP CRS: Java Injection Protection (v33-stable) (`WAF-java`)

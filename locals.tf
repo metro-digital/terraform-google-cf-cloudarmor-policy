@@ -58,63 +58,63 @@ locals {
       priority          = 30000
       action            = "deny(403)"
       target_rule_set   = "sqli-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-XSS" = {
       description       = "OWASP CRS: Cross-Site Scripting Protection (v33-stable)"
       priority          = 30100
       action            = "deny(403)"
       target_rule_set   = "xss-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-LFI" = {
       description       = "OWASP CRS: Local File Inclusion Protection (v33-stable)"
       priority          = 30200
       action            = "deny(403)"
       target_rule_set   = "lfi-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-RCE" = {
       description       = "OWASP CRS: Remote Code Execution Protection (v33-stable)"
       priority          = 30300
       action            = "deny(403)"
       target_rule_set   = "rce-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-RFI" = {
       description       = "OWASP CRS: Remote File Inclusion Protection (v33-stable)"
       priority          = 30400
       action            = "deny(403)"
       target_rule_set   = "rfi-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-HTTP-method" = {
       description       = "OWASP CRS: HTTP Method Protection (v33-stable)"
       priority          = 30500
       action            = "deny(403)"
       target_rule_set   = "methodenforcement-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-scanner-detection" = {
       description       = "OWASP CRS: Scanner Detection (v33-stable)"
       priority          = 30600
       action            = "deny(403)"
       target_rule_set   = "scannerdetection-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-protocol-attack" = {
       description       = "OWASP CRS: Protocol Attack Protection (v33-stable)"
       action            = "deny(403)"
       priority          = 30700
       target_rule_set   = "protocolattack-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-session-fixation" = {
       description       = "OWASP CRS: Session Fixation Protection (v33-stable)"
       action            = "deny(403)"
       priority          = 30800
       target_rule_set   = "sessionfixation-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     # Disabled rules for specific languages, can be enabled as needed.
     # We have a limited number of CEL expressions available in the policy,
@@ -125,7 +125,7 @@ locals {
       priority          = 30900
       action            = "deny(403)"
       target_rule_set   = "php-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-java" = {
       enable            = false
@@ -133,7 +133,7 @@ locals {
       priority          = 31000
       action            = "deny(403)"
       target_rule_set   = "java-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     },
     "WAF-nodejs" = {
       enable            = false
@@ -141,7 +141,7 @@ locals {
       priority          = 31100
       action            = "deny(403)"
       target_rule_set   = "nodejs-v33-stable"
-      sensitivity_level = 1
+      sensitivity_level = 2
     }
   }
 
