@@ -3,6 +3,7 @@
 <!-- mdformat-toc start --slug=github --no-anchors --maxlevel=6 --minlevel=2 -->
 
 - [Versioning](#versioning)
+- [Resources](#resources)
 
 <!-- mdformat-toc end -->
 
@@ -38,4 +39,35 @@ module "cloudarmor_policy" {
 }
 ```
 
+## Resources
+
+**Q:** In my project there is already a policy, how can I import it?
+
+**A:** Please have a look at [Terraform documentation].
+
+1. Find the correct address of your resource
+
+   ```bash
+   gcloud compute security-policies describe <policy> --project="<project>" | grep selfLink
+
+   selfLink: https://www.googleapis.com/compute/v1/projects/<project>/global/securityPolicies/<policy>
+   ```
+
+   The address is the
+   `compute/v1/projects/<project>/global/securityPolicies/<policy>` part
+
+1. If `<policy>` is not the module default `metro-baseline`, make sure to update
+   the `name` variable, for example in `terraform.tfvars` file:
+
+   ```hcl
+   name = "my-policy"
+   ```
+
+1. Import the resource in Terraform state:
+
+   ```bash
+   terraform import module.cloudarmor_policy.module.cloud_armor_policy.google_compute_security_policy.policy compute/v1/projects/<project>/global/securityPolicies/<policy>
+   ```
+
 [semantic versioning]: https://semver.org/
+[terraform documentation]: https://developer.hashicorp.com/terraform/cli/commands/import
