@@ -8,6 +8,9 @@ It allows you to create a Cloud Armor policy that is compliant with METRO's
 requirements while also enabling you to fine-tune your policy for
 application-specific needs.
 
+To create global Cloud Armor policies, use this module. For regional load
+balancers setups, use this [submodule][regional-backend-security-policy].
+
 > [!WARNING]
 > Not all features of the upstream module are supported yet.
 
@@ -298,6 +301,7 @@ You can obtain the respective source code here:
 [paranoia-explainer]: https://coreruleset.org/20211028/working-with-paranoia-levels/
 [projectcfg-module]: https://github.com/metro-digital/terraform-google-cf-projectcfg
 [quota-management]: https://cloud.google.com/docs/quotas/view-manage
+[regional-backend-security-policy]: ./modules/regional-backend-security-policy
 [sensitivity-post]: https://cloud.google.com/blog/products/identity-security/introducing-cloud-armor-features-to-help-improve-efficacy
 [terraform]: https://terraform.io/
 [upstream-module]: https://registry.terraform.io/modules/GoogleCloudPlatform/cloud-armor/google/latest

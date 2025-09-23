@@ -64,6 +64,15 @@ repos:
           - mdformat-shfmt
           - mdformat-toc
           - mdformat-tables
+  - repo: local
+    hooks:
+      - id: ensure-policy-defaults-sync-pre-configured
+        name: Ensure policy defaults for pre-configured rules are in sync
+        entry: /usr/bin/env bash -c 'diff rules-pre-configured.tf modules/regional-backend-security-policy/rules-pre-configured.tf >/dev/null || (echo "Difference in rules-pre-configured.tf files detected"; false)'
+        language: system
+        always_run: true
+        pass_filenames: false
+        require_serial: true
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
     rev: 879f5400493f84c8b683bdeb3366a8439ca17858  # frozen: v9.22.0
     hooks:

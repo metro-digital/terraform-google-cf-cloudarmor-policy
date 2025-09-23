@@ -22,22 +22,17 @@ resource "google_compute_project_cloud_armor_tier" "enterprise" {
 }
 
 module "cloud_armor_policy" {
-  source  = "GoogleCloudPlatform/cloud-armor/google"
+  source  = "GoogleCloudPlatform/cloud-armor/google//modules/regional-backend-security-policy"
   version = "~> 6.0"
 
-  project_id                             = var.project_id
-  name                                   = var.name
-  description                            = var.description
-  log_level                              = var.log_level
-  type                                   = "CLOUD_ARMOR"
-  layer_7_ddos_defense_rule_visibility   = var.layer_7_ddos_defense_rule_visibility
-  layer_7_ddos_defense_enable            = true
-  layer_7_ddos_defense_threshold_configs = var.layer_7_ddos_defense_threshold_configs
-  security_rules                         = var.security_rules
-  pre_configured_rules                   = local.pre_configured_rules
-  custom_rules                           = var.custom_rules
-  threat_intelligence_rules              = local.threat_intelligence_rules
-  adaptive_protection_auto_deploy        = local.adaptive_protection_auto_deploy
+  project_id           = var.project_id
+  name                 = var.name
+  description          = var.description
+  region               = var.region
+  type                 = "CLOUD_ARMOR"
+  security_rules       = var.security_rules
+  pre_configured_rules = local.pre_configured_rules
+  custom_rules         = var.custom_rules
 
   depends_on = [
     google_project_service.compute,
