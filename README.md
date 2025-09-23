@@ -11,9 +11,10 @@ application-specific needs.
 > [!WARNING]
 > Not all features of the upstream module are supported yet.
 
-| Module Version  | Upstream Module Version |
-| --------------- | ----------------------- |
-| v0.1.0 - latest | `~>5.1`                 |
+| Module Version  | Upstream Module Version | terraform provider version |
+| --------------- | ----------------------- | -------------------------- |
+| v0.1.0 - v0.1.1 | `~> 5.1`                | `~> 6.0`                   |
+| v0.2.0 - latest | `~> 6.0`                | `>= 6.14, < 8`             |
 
 <!-- mdformat-toc start --slug=github --no-anchors --maxlevel=6 --minlevel=2 -->
 
@@ -290,7 +291,7 @@ You can obtain the respective source code here:
 
 [cel-documentation]: https://cloud.google.com/armor/docs/rules-language-reference
 [changelog]: ./docs/CHANGELOG.md
-[contributing]: docs/CONTRIBUTING.md
+[contributing]: ./docs/CONTRIBUTING.md
 [example-projectcfg]: https://github.com/metro-digital/terraform-google-cf-cloudarmor-policy/tree/main/examples/cf-projectcfg-global
 [example-standalone]: https://github.com/metro-digital/terraform-google-cf-cloudarmor-policy/tree/main/examples/standalone-global
 [faq]: ./docs/FAQ.md

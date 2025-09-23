@@ -4,13 +4,13 @@
 | Name | Version |
 |------|---------|
 | terraform | >= 1.10 |
-| google | ~> 6.0 |
+| google | >= 6.14, < 8 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| cloud_armor_policy | GoogleCloudPlatform/cloud-armor/google | ~> 5.1 |
+| cloud_armor_policy | GoogleCloudPlatform/cloud-armor/google | ~> 6.0 |
 
 ## Inputs
 
