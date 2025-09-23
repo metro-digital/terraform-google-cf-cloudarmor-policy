@@ -2,5 +2,6 @@ wrap = 80
 validate = true
 exclude = [
     "docs/TERRAFORM.md",
-    "docs/CHANGELOG.md"
+    "docs/CHANGELOG.md",
+    "modules/regional-backend-security-policy/docs/TERRAFORM.md",
 ]
