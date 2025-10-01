@@ -22,6 +22,6 @@ terraform {
   required_version = ">= 1.10"
 
   provider_meta "google" {
-    module_name = "metro/cf/cloudarmor-policy/v0.1.1"
+    module_name = "metro/cf/cloudarmor-policy/v0.2.0"
   }
 }
