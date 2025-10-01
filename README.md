@@ -51,7 +51,7 @@ policy provided via the [module's output](./docs/TERRAFORM.md#outputs).
 ```hcl
 module "cloudarmor_policy" {
   source  = "metro-digital/cf-cloudarmor-policy/google"
-  version = "~> 0.1"
+  version = "~> 0.2"
 
   project_id = "cf-example-project"
 }
