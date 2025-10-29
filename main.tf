@@ -23,7 +23,7 @@ resource "google_compute_project_cloud_armor_tier" "enterprise" {
 
 module "cloud_armor_policy" {
   source  = "GoogleCloudPlatform/cloud-armor/google"
-  version = "~> 6.0"
+  version = "~> 7.0"
 
   project_id                             = var.project_id
   name                                   = var.name
