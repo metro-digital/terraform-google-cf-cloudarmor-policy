@@ -66,6 +66,24 @@ variable "log_level" {
   }
 }
 
+variable "json_parsing" {
+  description = "Whether Cloud Armor should parse JSON request bodies before evaluating preconfigured WAF rules. Can be `DISABLED` or `STANDARD`."
+  type        = string
+  nullable    = false
+  default     = "DISABLED"
+
+  validation {
+    condition     = contains(["DISABLED", "STANDARD"], var.json_parsing)
+    error_message = <<-EOM
+      Invalid JSON parsing mode given: '${var.json_parsing}'
+
+      Supported values are:
+        - DISABLED
+        - STANDARD
+    EOM
+  }
+}
+
 variable "layer_7_ddos_defense_rule_visibility" {
   description = <<-EOM
     Visibility level of the layer 7 DDOS rule. Can be set to `STANDARD` or
