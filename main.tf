@@ -29,6 +29,7 @@ module "cloud_armor_policy" {
   name                                   = var.name
   description                            = var.description
   log_level                              = var.log_level
+  json_parsing                           = var.json_parsing
   type                                   = "CLOUD_ARMOR"
   layer_7_ddos_defense_rule_visibility   = var.layer_7_ddos_defense_rule_visibility
   layer_7_ddos_defense_enable            = true
