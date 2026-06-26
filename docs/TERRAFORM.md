@@ -2,20 +2,20 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | >= 1.10 |
 | google | >= 6.14, < 8 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | cloud_armor_policy | GoogleCloudPlatform/cloud-armor/google | ~> 6.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | project_id | Google Cloud project ID. | `string` | n/a | yes |
 | adaptive_protection_auto_deploy_overwrites | Values to overwrite the default Adaptive Protection auto-deploy<br/>configuration provided by the baseline. The values here are used in the<br/>suggested rules created by Cloud Armor Adaptive Protection. Be aware that<br/>deviating from the baseline could reduce the effectiveness of the security<br/>policy and lead to security violation findings. The description of this<br/>object can be found in the upstream Cloud Armor [module documentation](https://registry.terraform.io/modules/GoogleCloudPlatform/cloud-armor/google/latest). | <pre>object({<br/>    enable      = optional(bool)<br/>    priority    = optional(number)<br/>    action      = optional(string)<br/>    preview     = optional(bool)<br/>    description = optional(string)<br/><br/>    load_threshold              = optional(number)<br/>    confidence_threshold        = optional(number)<br/>    impacted_baseline_threshold = optional(number)<br/>    expiration_sec              = optional(number)<br/><br/>    redirect_type   = optional(string)<br/>    redirect_target = optional(string)<br/><br/>    rate_limit_options = optional(object({<br/>      enforce_on_key      = optional(string)<br/>      enforce_on_key_name = optional(string)<br/><br/>      enforce_on_key_configs = optional(list(object({<br/>        enforce_on_key_name = optional(string)<br/>        enforce_on_key_type = optional(string)<br/>      })))<br/><br/>      exceed_action                        = optional(string)<br/>      rate_limit_http_request_count        = optional(number)<br/>      rate_limit_http_request_interval_sec = optional(number)<br/>      ban_duration_sec                     = optional(number)<br/>      ban_http_request_count               = optional(number)<br/>      ban_http_request_interval_sec        = optional(number)<br/>      exceed_redirect_options = optional(object({<br/>        type   = string<br/>        target = optional(string)<br/>      }))<br/>    }), {})<br/>  })</pre> | `{}` | no |
 | automatic_service_enablement | Controls service enablement behaviour of the module. If set to false, the module will not enabled needed APIs. | `bool` | `true` | no |
@@ -32,7 +32,7 @@
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | policy | Security policy created |
 <!-- END_TF_DOCS -->
 

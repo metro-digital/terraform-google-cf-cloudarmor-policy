@@ -2,20 +2,20 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | >= 1.10 |
 | google | >= 6.14, < 8 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | cloud_armor_policy | GoogleCloudPlatform/cloud-armor/google//modules/regional-backend-security-policy | ~> 6.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | project_id | Google Cloud project ID. | `string` | n/a | yes |
 | region | Region in which security policy is created | `string` | n/a | yes |
 | automatic_service_enablement | Controls service enablement behaviour of the module. If set to false, the module will not enabled needed APIs. | `bool` | `true` | no |
@@ -28,6 +28,6 @@
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | policy | Security policy created |
 <!-- END_TF_DOCS -->
