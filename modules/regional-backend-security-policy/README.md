@@ -30,7 +30,7 @@ application-specific needs.
 ```hcl
 module "cloudarmor_policy" {
   source  = "metro-digital/cf-cloudarmor-policy/google//modules/regional-backend-security-policy"
-  version = "~> 0.2"
+  version = "~> 0.3"
 
   project_id = "cf-example-project"
 }
