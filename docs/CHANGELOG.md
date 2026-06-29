@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/metro-digital/terraform-google-cf-cloudarmor-policy/compare/v0.2.0...v0.3.0) (2026-06-29)
+
+
+### Features
+
+* expose Cloud Armor JSON parsing option ([5209caa](https://github.com/metro-digital/terraform-google-cf-cloudarmor-policy/commit/5209caaa0d430026d882596ca159175a35b87220))
+
 ## [0.2.0](https://github.com/metro-digital/terraform-google-cf-cloudarmor-policy/compare/v0.1.1...v0.2.0) (2025-10-01)
 
 
