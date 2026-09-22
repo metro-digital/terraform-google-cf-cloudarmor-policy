@@ -23,6 +23,7 @@ balancers setups, use this [submodule][regional-backend-security-policy].
 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+  - [Client IP behind trusted proxies](#client-ip-behind-trusted-proxies)
   - [Requirements](#requirements)
 - [Features](#features)
   - [Default Policy](#default-policy)
@@ -90,6 +91,26 @@ tweak it, see the section on the _default policy_ below.
 > Most input variables mirror the structure defined by the
 > [upstream Terraform module][upstream-module]. The upstream documentation
 > provides information on the details that you need to provide.
+
+### Client IP behind trusted proxies
+
+If traffic reaches the load balancer through a trusted upstream proxy, Cloud
+Armor can resolve the originating client IP from a request header configured via
+`user_ip_request_headers`. For example:
+
+```hcl
+module "cloudarmor_policy" {
+  source  = "metro-digital/cf-cloudarmor-policy/google"
+  version = "~> 0.3"
+
+  project_id = "cf-example-project"
+
+  user_ip_request_headers = ["X-Forwarded-For"]
+}
+```
+
+Only configure headers that are populated or sanitized by a trusted upstream
+proxy. Request headers can otherwise be spoofed by clients.
 
 ### Requirements
 

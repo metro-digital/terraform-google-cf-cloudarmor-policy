@@ -20,6 +20,11 @@
 
 # name = "my-example-stuff"
 
+# If the application is behind a trusted upstream proxy that provides the real
+# client IP in X-Forwarded-For, Cloud Armor can use that header for user IP
+# resolution. Only enable this when the header is controlled by a trusted proxy.
+# user_ip_request_headers = ["X-Forwarded-For"]
+
 # pre_configured_rules_overwrites = {
 #   # We have a nodejs app, so activate the corresponding rule
 #   "WAF-nodejs" = {
