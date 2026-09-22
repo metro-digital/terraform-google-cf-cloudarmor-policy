@@ -58,6 +58,13 @@ variable "log_level" {
   }
 }
 
+variable "user_ip_request_headers" {
+  description = "Request header names used by Cloud Armor to resolve the originating client IP address when traffic passes through a trusted upstream proxy."
+  type        = list(string)
+  nullable    = false
+  default     = []
+}
+
 variable "layer_7_ddos_defense_rule_visibility" {
   description = "If set to PREMIUM more detailed insights to generated DDoS protection rules are provided"
   type        = string

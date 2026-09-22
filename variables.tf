@@ -84,6 +84,13 @@ variable "json_parsing" {
   }
 }
 
+variable "user_ip_request_headers" {
+  description = "Request header names used by Cloud Armor to resolve the originating client IP address when traffic passes through a trusted upstream proxy."
+  type        = list(string)
+  nullable    = false
+  default     = []
+}
+
 variable "layer_7_ddos_defense_rule_visibility" {
   description = <<-EOM
     Visibility level of the layer 7 DDOS rule. Can be set to `STANDARD` or

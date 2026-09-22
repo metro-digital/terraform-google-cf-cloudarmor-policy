@@ -21,6 +21,7 @@ module "cloudarmor_policy" {
   name                                 = var.name
   description                          = var.description
   log_level                            = var.log_level
+  user_ip_request_headers              = var.user_ip_request_headers
   layer_7_ddos_defense_rule_visibility = var.layer_7_ddos_defense_rule_visibility
 
   pre_configured_rules_overwrites            = var.pre_configured_rules_overwrites
